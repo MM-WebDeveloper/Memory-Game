@@ -16,6 +16,7 @@ interface Card {
 
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<Card[]>([]);
+	const [turns, setTurns] = useState(0);
 	// shuffle cards
 	const shuffleCards = () => {
 		const shuffledCards = [...cardImages, ...cardImages]
@@ -24,6 +25,7 @@ const App = (): JSX.Element => {
 
 		console.log(shuffledCards);
 		setCards(shuffledCards);
+		setTurns(0);
 	};
 
 	return (
