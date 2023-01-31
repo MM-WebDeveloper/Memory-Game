@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import './App.css';
+import './App.scss';
 const cardImages = [
-	{ color: '#9c7c38', name: 'Sunburst' },
+	{ color: '#000', name: 'Black' },
 	{ color: '#aec6d2', name: 'Sonic Blue' },
 	{ color: '#ff0800', name: 'Candy Apple Red' },
 	{ color: '#f1eee6', name: 'Olympic White' },
 	{ color: '#3f5c94', name: 'Lake Placid Blue' },
-	{ color: '#f3dde7', name: 'Mary Kay' },
+	{ color: '#f3dde7', name: 'Mary Kaye White' },
 ];
 
 interface Card {
@@ -30,20 +30,21 @@ const App = (): JSX.Element => {
 	};
 
 	return (
-		<div>
+		<div className='card-display'>
 			<h1>Memory Game</h1>
 			<button onClick={shuffleCards}>New Game</button>
 
-			<div>
+			<div className='card-list'>
 				{cards.map((card) => (
-					<div className='' key={card.id}>
-						<div>
-							<div className='front card' style={{ background: card.color }}>
-								<span>{card.name}</span>
-							</div>
-							<div className='back card' style={{ background: 'black' }}>
-								<span>?</span>
-							</div>
+					<div key={card.id}>
+						<div className='front card' style={{ background: card.color }}>
+							{card.name}
+						</div>
+						<div
+							className='back card'
+							style={{ background: 'black', display: 'none' }}
+						>
+							?
 						</div>
 					</div>
 				))}

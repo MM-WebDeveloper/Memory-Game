@@ -1,0 +1,35 @@
+body {
+	background: #dadab4;
+	color: #fff;
+	text-shadow: 1px 1px 2px black;
+}
+
+.card-display {
+	margin: auto;
+	width: 40vw;
+}
+
+.card-list {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+	margin: 10px auto;
+}
+
+.card {
+	border-radius: 10px;
+	box-shadow: 3px 3px 5px black;
+	cursor: pointer;
+	font-size: larger;
+	font-weight: bolder;
+	height: 250px;
+	line-height: 200px;
+	text-align: center;
+	transition: transform 0.2s;
+	user-select: none;
+	vertical-align: middle;
+}
+
+.card:hover {
+	transform: scale(1.02);
+}
