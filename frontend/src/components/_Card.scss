@@ -1,0 +1,17 @@
+.card {
+	border-radius: 10px;
+	box-shadow: 3px 3px 5px black;
+	cursor: pointer;
+	font-size: larger;
+	font-weight: bolder;
+	height: 250px;
+	line-height: 200px;
+	text-align: center;
+	transition: transform 0.2s;
+	user-select: none;
+	vertical-align: middle;
+}
+
+.card:hover {
+	transform: scale(1.02);
+}
