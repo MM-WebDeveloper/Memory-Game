@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.scss';
+import Card from './components/Card';
 const cardImages = [
 	{ color: '#000', name: 'Black' },
 	{ color: '#aec6d2', name: 'Sonic Blue' },
@@ -9,14 +10,14 @@ const cardImages = [
 	{ color: '#f3dde7', name: 'Mary Kaye White' },
 ];
 
-interface Card {
+interface ICard {
 	id: number;
 	color: string;
 	name: string;
 }
 
 const App = (): JSX.Element => {
-	const [cards, setCards] = useState<Card[]>([]);
+	const [cards, setCards] = useState<ICard[]>([]);
 	const [turns, setTurns] = useState(0);
 	// shuffle cards
 	const shuffleCards = () => {
@@ -36,17 +37,7 @@ const App = (): JSX.Element => {
 
 			<div className='card-list'>
 				{cards.map((card) => (
-					<div key={card.id}>
-						<div className='front card' style={{ background: card.color }}>
-							{card.name}
-						</div>
-						<div
-							className='back card'
-							style={{ background: 'black', display: 'none' }}
-						>
-							?
-						</div>
-					</div>
+					<Card card={card} />
 				))}
 			</div>
 			<p>Turns: {turns}</p>
