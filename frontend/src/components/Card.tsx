@@ -1,16 +1,26 @@
 type CardProps = {
 	card: { id: number; color: string; name: string };
+	flipHandler: (card: string) => void;
 };
 
-const Card = ({ card }: CardProps) => {
+const Card = ({ card, flipHandler }: CardProps) => {
+	const handleClick = (color: string) => {
+		flipHandler(color);
+	};
+
 	return (
-		<div key={card.id}>
-			<div className='front card' style={{ background: card.color }}>
+		<div>
+			<div
+				className='front card'
+				onClick={() => handleClick(card.color)}
+				style={{ background: card.color }}
+			>
 				{card.name}
 			</div>
 			<div
 				className='back card'
-				style={{ background: 'black', display: 'none' }}
+				onClick={() => handleClick(card.color)}
+				style={{ background: 'black' }}
 			>
 				?
 			</div>
