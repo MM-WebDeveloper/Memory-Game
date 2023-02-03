@@ -35,7 +35,7 @@ const App = (): JSX.Element => {
 			<h1>Memory Game</h1>
 			<button onClick={shuffleCards}>New Game</button>
 
-			<div className='card-list'>
+			<div className='card-grid'>
 				{cards.map((card) => (
 					<Card card={card} />
 				))}
