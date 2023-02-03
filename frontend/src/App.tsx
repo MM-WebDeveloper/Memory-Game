@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.scss';
 import Card from './components/Card';
 import { cardImages } from './cardsData';
-
-interface ICard {
-	id: number;
-	color: string;
-	name: string;
-	matched: boolean;
-}
+import { ICard } from './shared/interfaces';
 
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<ICard[]>([]);

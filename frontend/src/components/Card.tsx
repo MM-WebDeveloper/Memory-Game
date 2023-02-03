@@ -1,8 +1,4 @@
-type CardProps = {
-	card: { id: number; color: string; name: string };
-	flipped: boolean;
-	flipHandler: (card: { id: number; color: string; name: string }) => void;
-};
+import { CardProps } from '../shared/types';
 
 const Card = ({ card, flipped, flipHandler }: CardProps) => {
 	const handleClick = () => {
