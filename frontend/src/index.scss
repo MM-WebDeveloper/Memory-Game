@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+.card-display h1 {
+	font-family: 'Caveat', cursive;
+}
+
+.card-display button {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px black;
+}
+
+.card-display button:hover {
+	border-bottom: 1px solid white;
 }
