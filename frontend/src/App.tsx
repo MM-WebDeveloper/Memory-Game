@@ -13,14 +13,14 @@ interface ICard {
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<ICard[]>([]);
 	const [turns, setTurns] = useState(0);
-	const [firstFlip, setFirstFlip] = useState('');
-	const [secondFlip, setSecondFlip] = useState('');
+	const [firstFlip, setFirstFlip] = useState<ICard | null>(null);
+	const [secondFlip, setSecondFlip] = useState<ICard | null>(null);
 
 	useEffect(() => {
 		if (firstFlip && secondFlip) {
-			if (firstFlip === secondFlip) {
+			if (firstFlip.color === secondFlip.color) {
 				const cardsUpdated = cards.map((card) => {
-					if (card.color === firstFlip) {
+					if (card.color === firstFlip.color) {
 						card.matched = true;
 						return card;
 					}
@@ -30,7 +30,7 @@ const App = (): JSX.Element => {
 				setCards(cardsUpdated);
 				resetFlips();
 			} else {
-				resetFlips();
+				setTimeout(() => resetFlips(), 1000);
 			}
 		}
 	}, [firstFlip, secondFlip, cards]);
@@ -44,13 +44,13 @@ const App = (): JSX.Element => {
 		setTurns(0);
 	};
 
-	const flipHandler = (color: string) => {
-		firstFlip ? setSecondFlip(color) : setFirstFlip(color);
+	const flipHandler = (card: any) => {
+		firstFlip ? setSecondFlip(card) : setFirstFlip(card);
 	};
 
 	const resetFlips = () => {
-		setFirstFlip('');
-		setSecondFlip('');
+		setFirstFlip(null);
+		setSecondFlip(null);
 		setTurns((prevTurns) => prevTurns + 1);
 	};
 
@@ -61,7 +61,16 @@ const App = (): JSX.Element => {
 
 			<div className='card-grid'>
 				{cards.map((card) => (
-					<Card key={card.id} flipHandler={flipHandler} card={card} />
+					<Card
+						key={card.id}
+						flipHandler={flipHandler}
+						flipped={
+							card.matched ||
+							card.id === firstFlip?.id ||
+							card.id === secondFlip?.id
+						}
+						card={card}
+					/>
 				))}
 			</div>
 			<p>Turns: {turns}</p>
