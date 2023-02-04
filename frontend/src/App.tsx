@@ -38,7 +38,10 @@ const App = (): JSX.Element => {
 		setTurns(0);
 	};
 
-	const flipHandler = (card: any) => {
+	const flipHandler = (card: ICard) => {
+		if (firstFlip && secondFlip) {
+			return;
+		}
 		firstFlip ? setSecondFlip(card) : setFirstFlip(card);
 	};
 
