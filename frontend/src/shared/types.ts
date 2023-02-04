@@ -1,11 +1,7 @@
-export type CardType = {
-	id: number;
-	color: string;
-	name: string;
-};
+import { ICard } from './interfaces';
 
 export type CardProps = {
-	card: CardType;
+	card: ICard;
 	flipped: boolean;
-	flipHandler: (card: CardType) => void;
+	flipHandler: (card: ICard) => void;
 };
