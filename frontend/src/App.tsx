@@ -6,9 +6,10 @@ import { ICard } from './shared/interfaces';
 
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<ICard[]>([]);
-	const [turns, setTurns] = useState(0);
+	const [score, setScore] = useState(0);
 	const [firstFlip, setFirstFlip] = useState<ICard | null>(null);
 	const [secondFlip, setSecondFlip] = useState<ICard | null>(null);
+	const [turns, setTurns] = useState(0);
 
 	useEffect(() => {
 		if (firstFlip && secondFlip) {
@@ -22,6 +23,7 @@ const App = (): JSX.Element => {
 				});
 
 				setCards(cardsUpdated);
+				setTurns((prevTurns) => prevTurns + 1);
 				resetFlips();
 			} else {
 				setTimeout(() => resetFlips(), 1000);
@@ -31,11 +33,12 @@ const App = (): JSX.Element => {
 
 	// shuffle cards
 	const shuffleCards = () => {
+		setTurns(0);
 		const shuffledCards = [...cardImages, ...cardImages]
 			.sort(() => Math.random() - 0.5)
 			.map((card) => ({ ...card, id: Math.random() }));
 		setCards(shuffledCards);
-		setTurns(0);
+		setScore(0);
 	};
 
 	const flipHandler = (card: ICard) => {
@@ -48,29 +51,33 @@ const App = (): JSX.Element => {
 	const resetFlips = () => {
 		setFirstFlip(null);
 		setSecondFlip(null);
-		setTurns((prevTurns) => prevTurns + 1);
+		setScore((prevScore) => prevScore + 1);
 	};
 
 	return (
 		<div className='card-display'>
 			<h1>Memory Game</h1>
 			<button onClick={shuffleCards}>New Game</button>
+			{turns === 6 ? (
+				'You won!'
+			) : (
+				<div className='card-grid'>
+					{cards.map((card) => (
+						<Card
+							key={card.id}
+							flipHandler={flipHandler}
+							flipped={
+								card.matched ||
+								card.id === firstFlip?.id ||
+								card.id === secondFlip?.id
+							}
+							card={card}
+						/>
+					))}
+				</div>
+			)}
 
-			<div className='card-grid'>
-				{cards.map((card) => (
-					<Card
-						key={card.id}
-						flipHandler={flipHandler}
-						flipped={
-							card.matched ||
-							card.id === firstFlip?.id ||
-							card.id === secondFlip?.id
-						}
-						card={card}
-					/>
-				))}
-			</div>
-			<p>Turns: {turns}</p>
+			<p>Score: {score}</p>
 		</div>
 	);
 };
