@@ -3,6 +3,7 @@ import './App.scss';
 import Card from './components/Card';
 import { cardImages } from './cardsData';
 import { ICard } from './shared/interfaces';
+import Winner from './components/Winner';
 
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<ICard[]>([]);
@@ -31,9 +32,9 @@ const App = (): JSX.Element => {
 		}
 	}, [firstFlip, secondFlip, cards]);
 
-	// shuffle cards
 	const shuffleCards = () => {
 		setTurns(0);
+		resetFlips();
 		const shuffledCards = [...cardImages, ...cardImages]
 			.sort(() => Math.random() - 0.5)
 			.map((card) => ({ ...card, id: Math.random() }));
@@ -59,7 +60,7 @@ const App = (): JSX.Element => {
 			<h1>Memory Game</h1>
 			<button onClick={shuffleCards}>New Game</button>
 			{turns === 6 ? (
-				'You won!'
+				<Winner score={score} />
 			) : (
 				<div className='card-grid'>
 					{cards.map((card) => (
@@ -74,10 +75,9 @@ const App = (): JSX.Element => {
 							card={card}
 						/>
 					))}
+					<p>Score: {score}</p>
 				</div>
 			)}
-
-			<p>Score: {score}</p>
 		</div>
 	);
 };
