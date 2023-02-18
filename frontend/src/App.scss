@@ -2,18 +2,66 @@
 
 body {
 	background: #dadab4;
-	color: #fff;
-	text-shadow: 1px 1px 2px black;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .card-display {
 	margin: auto;
-	width: 40vw;
+	max-height: 100vh;
+	padding: 0.5rem;
+	text-align: center;
+	width: 100vw;
 }
 
-.card-grid {
+.card-display h1,
+p {
+	color: #c9ba9d;
+}
+
+.card-display__button {
+	background: #a26769;
+	border-radius: 0.5rem;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-family: 'Gajraj One', cursive;
+	margin-top: 5px;
+	padding: 0.5rem;
+}
+
+.card-display__grid {
 	display: grid;
 	gap: 10px;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	margin: 10px auto;
+}
+
+.card-display__grid p {
+	font-family: 'Gajraj One', cursive;
+}
+
+@media screen and (min-width: 481px) {
+	.card-display__grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.card-display__grid {
+		grid-template-columns: repeat(4, 1fr);
+		margin: 10px auto;
+		width: 60vh;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.card-display__grid {
+		margin: auto;
+		max-height: 100vh;
+		padding: 0.5rem;
+		text-align: center;
+		width: 50vw;
+	}
 }

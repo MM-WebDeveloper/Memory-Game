@@ -20,7 +20,7 @@ const Card = ({ card, flipped, flipHandler }: CardProps) => {
 			<div
 				className={(flipped ? 'flipped' : '') + ' back card'}
 				onClick={() => handleClick()}
-				style={{ background: 'black' }}
+				style={{ background: '#582c4d' }}
 			>
 				?
 			</div>

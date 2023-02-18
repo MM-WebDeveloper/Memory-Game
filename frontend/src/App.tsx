@@ -58,11 +58,13 @@ const App = (): JSX.Element => {
 	return (
 		<div className='card-display'>
 			<h1>Memory Game</h1>
-			<button onClick={shuffleCards}>New Game</button>
+			<button className='card-display__button' onClick={shuffleCards}>
+				{cards.length && turns !== 6 ? 'Restart Game' : 'Start Game'}
+			</button>
 			{turns === 6 ? (
 				<Winner score={score} />
 			) : (
-				<div className='card-grid'>
+				<div className='card-display__grid'>
 					{cards.map((card) => (
 						<Card
 							key={card.id}
@@ -75,7 +77,7 @@ const App = (): JSX.Element => {
 							card={card}
 						/>
 					))}
-					<p>Score: {score}</p>
+					{cards.length > 0 && <p>SCORE: {score}</p>}
 				</div>
 			)}
 		</div>
