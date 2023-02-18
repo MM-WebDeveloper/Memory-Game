@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import './App.scss';
 import Card from './components/Card';
 import { cardImages } from './cardsData';
 import { ICard } from './shared/interfaces';
 import Winner from './components/Winner';
+import styles from './styles/App.module.css';
 
 const App = (): JSX.Element => {
 	const [cards, setCards] = useState<ICard[]>([]);
@@ -56,15 +56,15 @@ const App = (): JSX.Element => {
 	};
 
 	return (
-		<div className='card-display'>
+		<div className={styles['card-display']}>
 			<h1>Memory Game</h1>
-			<button className='card-display__button' onClick={shuffleCards}>
+			<button className={styles['card-display__button']} onClick={shuffleCards}>
 				{cards.length && turns !== 6 ? 'Restart Game' : 'Start Game'}
 			</button>
 			{turns === 6 ? (
 				<Winner score={score} />
 			) : (
-				<div className='card-display__grid'>
+				<div className={styles['card-display__grid']}>
 					{cards.map((card) => (
 						<Card
 							key={card.id}

@@ -1,3 +1,4 @@
+import styles from '../styles/Card.module.css';
 import { CardProps } from '../shared/types';
 
 const Card = ({ card, flipped, flipHandler }: CardProps) => {
@@ -11,14 +12,20 @@ const Card = ({ card, flipped, flipHandler }: CardProps) => {
 	return (
 		<div>
 			<div
-				className={(flipped ? '' : 'flipped') + ' card'}
+				className={
+					(flipped ? '' : `${styles['flipped']} `) + `${styles['card']}`
+				}
 				onClick={() => handleClick()}
 				style={{ background: card.color }}
 			>
 				{card.name}
 			</div>
 			<div
-				className={(flipped ? 'flipped' : '') + ' back card'}
+				className={
+					(flipped ? `${styles['flipped']} ` : '') +
+					`${styles['card']} ` +
+					`${styles['back']}`
+				}
 				onClick={() => handleClick()}
 				style={{ background: '#582c4d' }}
 			>

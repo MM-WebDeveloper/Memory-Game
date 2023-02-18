@@ -1,4 +1,4 @@
-import './_Winner.scss';
+import styles from '../styles/Winner.module.css';
 
 interface WinnerProps {
 	score: number;
@@ -6,7 +6,7 @@ interface WinnerProps {
 
 const Winner = ({ score }: WinnerProps) => {
 	return (
-		<div className='winner'>
+		<div className={styles['winner']}>
 			<h2>YOU WON!</h2>
 			<p>YOUR SCORE IS {score}!</p>
 		</div>
