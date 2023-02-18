@@ -7,8 +7,8 @@ interface WinnerProps {
 const Winner = ({ score }: WinnerProps) => {
 	return (
 		<div className='winner'>
-			<h2>You Won!</h2>
-			<p>Your score is {score}!</p>
+			<h2>YOU WON!</h2>
+			<p>YOUR SCORE IS {score}!</p>
 		</div>
 	);
 };
