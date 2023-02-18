@@ -102,8 +102,8 @@ p {
 	}
 
 	.card-display__grid {
-		width: 60vw;
-		grid-template-columns: repeat(4, 1fr);
+		width: 80vw;
+		grid-template-columns: repeat(6, 1fr);
 	}
 
 	.card-display__button {

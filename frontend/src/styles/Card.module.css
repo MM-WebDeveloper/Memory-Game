@@ -73,3 +73,13 @@
 		font-size: 2rem;
 	}
 }
+
+@media screen and (max-height: 1025px) and (orientation: landscape) {
+	.card {
+		font-size: 0.6rem;
+	}
+
+	.back {
+		font-size: 2rem;
+	}
+}
