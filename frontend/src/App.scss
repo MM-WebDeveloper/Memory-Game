@@ -65,3 +65,50 @@ p {
 		width: 50vw;
 	}
 }
+
+@media screen and (max-height: 425px) and (orientation: landscape) {
+	.card-display h1 {
+		font-size: 1.5rem;
+	}
+
+	.card-display p {
+		font-size: 0.7rem;
+	}
+
+	.card-display__grid {
+		width: 90vw;
+		height: 100vh;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.card-display__button {
+		color: white;
+		cursor: pointer;
+		font-family: 'Gajraj One', cursive;
+		font-size: 0.5rem;
+		padding: 0.3rem;
+	}
+}
+
+@media screen and (max-height: 1025px) and (orientation: landscape) {
+	.card-display h1 {
+		font-size: 2rem;
+	}
+
+	.card-display p {
+		font-size: 1rem;
+	}
+
+	.card-display__grid {
+		width: 60vw;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.card-display__button {
+		color: white;
+		cursor: pointer;
+		font-family: 'Gajraj One', cursive;
+		font-size: 1rem;
+		padding: 0.3rem;
+	}
+}
