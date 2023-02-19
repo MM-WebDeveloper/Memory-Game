@@ -3,15 +3,13 @@
 	box-shadow: 3px 3px 5px black;
 	cursor: pointer;
 	font-size: 0.7rem;
-	height: 150px;
-	line-height: 150px;
+	height: 160px;
+	line-height: 160px;
 	overflow: hidden;
 	text-align: center;
 	user-select: none;
 	vertical-align: center;
-	font-family: 'Gajraj One', cursive;
 	text-shadow: 1px 1px 4px black;
-	padding: 1px;
 }
 
 .card:hover {
@@ -26,7 +24,7 @@
 	display: none;
 }
 
-@media screen and (min-width: 481px) {
+@media only screen and (min-width: 481px) {
 	.card {
 		font-size: 0.8rem;
 		height: 200px;
@@ -38,7 +36,19 @@
 	}
 }
 
-@media screen and (min-width: 769px) {
+@media only screen and (min-width: 481px) and (orientation: landscape) {
+	.card {
+		font-size: 0.6rem;
+		height: 170px;
+		line-height: 170px;
+	}
+
+	.back {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: 769px) {
 	.card {
 		font-size: 1rem;
 		height: 300px;
@@ -50,7 +60,19 @@
 	}
 }
 
-@media screen and (min-width: 1025px) {
+@media only screen and (min-width: 769px) and (orientation: landscape) {
+	.card {
+		font-size: 0.65rem;
+		height: 180px;
+		line-height: 180px;
+	}
+
+	.back {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: 1025px) {
 	.card {
 		font-size: 1.3rem;
 		height: 250px;
@@ -62,21 +84,10 @@
 	}
 }
 
-@media screen and (max-height: 425px) and (orientation: landscape) {
+@media only screen and (min-width: 1025px) and (orientation: landscape) {
 	.card {
-		font-size: 0.7rem;
-		height: 150px;
-		line-height: 150px;
-	}
-
-	.back {
-		font-size: 2rem;
-	}
-}
-
-@media screen and (max-height: 1025px) and (orientation: landscape) {
-	.card {
-		font-size: 0.6rem;
+		font-size: 0.9rem;
+		width: 200px;
 	}
 
 	.back {
